@@ -69,8 +69,5 @@ bool Pila<T>::Llena() {
 
 int main() 
 {
-	  
-
-
-
+	void Insertar(MuroCeramica);
 }
