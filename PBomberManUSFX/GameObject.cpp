@@ -16,3 +16,5 @@ GameObject::GameObject(string _nombre)
 	numeroGameObjectCreados++;
 	idGameObject = numeroGameObjectCreados;
 }
+
+

@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "MuroCeramica.h"
 using namespace std;
 
 template<class T>
@@ -64,4 +65,12 @@ bool Pila<T>::Llena() {
 		return true;
 	}
 		
+}
+
+int main() 
+{
+	  
+
+
+
 }
