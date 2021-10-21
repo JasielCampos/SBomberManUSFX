@@ -56,18 +56,3 @@ bool Pila<T>::Vacia() {
 		return false;
 }
 
-template<class T>
-bool Pila<T>::Llena() {
-	if (Cima < numeroElementos - 1) {
-		return false;
-	}
-	else {
-		return true;
-	}
-		
-}
-
-int main() 
-{
-	void Insertar(MuroCeramica);
-}

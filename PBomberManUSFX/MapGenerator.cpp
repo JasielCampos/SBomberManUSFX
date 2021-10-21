@@ -44,8 +44,8 @@ bool MapGenerator::crearObjetosJuego(string _path)
 	
 	Texture::renderer = renderer;
 
-	texturaBomberman->loadFromImage("resources/bomberman.jpg");
-	texturaBomberwoman->loadFromImage("resources/bomberman.jpg");
+	texturaBomberman->loadFromImage("resources/bman.png");
+	texturaBomberwoman->loadFromImage("resources/bman.png");
 	texturaMuroCeramica->loadFromImage("resources/muro_ceramica.jpg");
 	texturaMuroMetal->loadFromImage("resources/muro_metal.jpg");
 	texturaSueloCesped->loadFromImage("resources/suelo_cesped.jpg");
@@ -79,13 +79,13 @@ bool MapGenerator::crearObjetosJuego(string _path)
 					}
 
 					//pilaObjetosJuegoMurosMetal.Insertar((GameActor*)objetoNuevo);
-
+                //  creación de los tiles MuroCeramica  y MuroMetal a partir de su textura, arreglado 
 					break;
 				case '1':
-					objetoNuevo = new MuroMetal(texturaMuroCeramica, tileNuevo);
+					objetoNuevo = new MuroCeramica(texturaMuroCeramica, tileNuevo);
 					break;
 				case '2':
-					objetoNuevo = new MuroCeramica(texturaMuroMetal, tileNuevo);
+					objetoNuevo = new MuroMetal(texturaMuroMetal, tileNuevo);
 					break;
 					/*case 'B':
 						objetoNuevo = new Bomberman(texturaBomberman, tileNuevo);

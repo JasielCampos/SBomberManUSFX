@@ -99,11 +99,11 @@ bool GameActor::tratarDeMover(MoveDirection _direccionNueva) {
 		return false;
 	}
 
-	if (tileDestino->getMuroCeramica() != nullptr)
+	/*if (tileDestino->getMuroCeramica() != nullptr)
 	{
 		setTileSiguiente(nullptr);
 		return false;
-	}
+	}*/
 
 	setTileSiguiente(tileDestino);
 	return true;
