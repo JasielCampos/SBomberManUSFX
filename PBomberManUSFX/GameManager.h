@@ -2,7 +2,7 @@
 #include<iostream>
 #include <string>
 #include <stdlib.h>
-#include <time.h>
+//#include <time.h>
 #include <vector>
 
 #include <SDL.h>
@@ -12,6 +12,7 @@
 #include "MapGenerator.h"
 #include "system/KeyboardInput.h"
 #include "TilesGraph.h"
+#include "Timer.h"
 
 using namespace std;
 
@@ -39,6 +40,8 @@ private:
     bool enEjecucion;
 
     TilesGraph* tilesGraphGM;
+    Timer* timer;
+    
 public:
     // Constructores & destructores
     GameManager();

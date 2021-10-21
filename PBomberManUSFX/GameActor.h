@@ -129,4 +129,3 @@ public:
 	virtual void handleEvent(SDL_Event* event) {};
 	virtual void deleteGameObject() {};
 };
-

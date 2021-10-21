@@ -1,6 +1,7 @@
 #include "GameManager.h"
+#include "Timer.h"
 
-
+// timer
 GameManager::GameManager() {
 	gWindow = nullptr;
 	gRenderer = nullptr;
@@ -8,11 +9,13 @@ GameManager::GameManager() {
 	keyboardInput = KeyboardInput::Instance();
 	enEjecucion = true;
 	tilesGraphGM = nullptr;
+	timer = new Timer();
 }
 
 bool GameManager::onInit() {
 
 	//Initialization flag
+
 	bool success = true;
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) 
@@ -43,6 +46,9 @@ bool GameManager::onInit() {
 			{
 				//Initialize renderer color
 				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+
+				//se inicia timer
+				timer->startTimer();
 
 				//Initialize PNG loading
 				int imgFlags = IMG_INIT_PNG;
@@ -114,6 +120,9 @@ void GameManager::onRender() {
 
 void GameManager::close()
 {
+	// Se detiene Timer
+	timer->stopTimer();
+
 	//Free loaded image
 	SDL_DestroyTexture(gTexture);
 	gTexture = nullptr;
