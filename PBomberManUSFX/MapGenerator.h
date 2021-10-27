@@ -20,12 +20,14 @@ private:
 
 	int anchoPantalla;
 	int altoPantalla;
+	int Key;
 	SDL_Renderer* renderer;
 	TilesGraph* tilesGraph;
 public:
 	// Constructores y destructores
 	MapGenerator();
 	MapGenerator(SDL_Renderer* _renderer, int _anchoPantalla, int _altoPantalla, TilesGraph* _tilesGraph);
+	map<int, int> mObjetoMCPar;
 
 	// Métodos accesores
 	int getAnchoPantalla() { return anchoPantalla; }
@@ -36,6 +38,8 @@ public:
 
 	SDL_Renderer* getRendered() { return renderer; }
 	void setRenderer(SDL_Renderer* _renderer) { renderer = _renderer; }
+
+
 
 	// Métodos heredados
 

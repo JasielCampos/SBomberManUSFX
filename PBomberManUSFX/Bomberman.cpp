@@ -30,6 +30,12 @@ Bomberman::Bomberman(Texture* _textura, Tile* _tileActual) :GamePawn(_textura, _
 void Bomberman::update()
 {
 	direccionSiguiente = MOVE_DIRECTION_NONE;
+	if (keyboardInput->IsKeyOn(botonBomba)) {
+		solido = true;
+	}
+	else {
+		solido = false;
+	}
 
 	if (keyboardInput->IsKeyOn(botonAbajo)) {
 		direccionSiguiente = MOVE_DIRECTION_ABAJO;

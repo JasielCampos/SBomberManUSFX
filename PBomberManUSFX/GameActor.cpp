@@ -89,9 +89,22 @@ bool GameActor::tratarDeMover(MoveDirection _direccionNueva) {
 
 	// Si tileDestino es nullptr, no se puede avanzar
 
-	// Para poder permitir que BomberMan pase por los muros de cerámica, se comenta el código donde se hace que tileDestino sea nullptr
+	// Para poder permitir que BomberMan pase por los muros de cerámica, se comenta el código donde se hace que tileSiguiente sea nullptr
 
-	if (tileDestino == nullptr) {
+	if (solido == true) {
+		if (tileDestino == nullptr) {
+			setTileSiguiente(nullptr);
+			return false;
+		}
+
+		if (tileDestino->getMuroMetal() != nullptr)
+		{
+			setTileSiguiente(nullptr);
+			return false;
+		}
+	}
+
+	/*if (tileDestino == nullptr) {
 		setTileSiguiente(nullptr);
 		return false;
 	}
@@ -100,7 +113,7 @@ bool GameActor::tratarDeMover(MoveDirection _direccionNueva) {
 	{
 		setTileSiguiente(nullptr);
 		return false;
-	}
+	}*/
 
 	/*if (tileDestino->getMuroCeramica() != nullptr)
 	{

@@ -78,11 +78,21 @@ bool MapGenerator::crearObjetosJuego(string _path)
 						bomberwomanPosicionY = y;
 					}
 
-					//pilaObjetosJuegoMurosMetal.Insertar((GameActor*)objetoNuevo);
+				// pilaObjetosJuegoMurosMetal.Insertar((GameActor*)objetoNuevo);
                 //  creación de los tiles MuroCeramica  y MuroMetal a partir de su textura, arreglado 
 					break;
 				case '1':
 					objetoNuevo = new MuroCeramica(texturaMuroCeramica, tileNuevo);
+
+					// Implementación de contenedor avanzado map que almacena los objetos Muro Ceramica con fila y columna par
+					if (x % 2 == 0 && y % 2 == 0)
+					{
+						int key = 0;
+						key = y * TilesGraph::anchoTilesGraph + x;
+						//Key se inserta a mObjetoMCPar
+						mObjetoMCPar.insert({ key,1 });	
+					}
+					
 					break;
 				case '2':
 					objetoNuevo = new MuroMetal(texturaMuroMetal, tileNuevo);
@@ -91,7 +101,7 @@ bool MapGenerator::crearObjetosJuego(string _path)
 						objetoNuevo = new Bomberman(texturaBomberman, tileNuevo);
 						break;*/
 				}
-
+				
 				if (objetoNuevo != nullptr) {
 					((GameActor*)objetoNuevo)->setPosicionX(x * 34);
 					((GameActor*)objetoNuevo)->setPosicionY(y * 34);
@@ -100,10 +110,17 @@ bool MapGenerator::crearObjetosJuego(string _path)
 				}
 			}
 		}
+		
 		y++;
 	}
-
-
+	
+	//Impresión de mObjetoMCPar
+	cout << "KEY\tCASO CERAMICA\n";
+	for (auto itr = mObjetoMCPar.begin(); itr != mObjetoMCPar.end(); ++itr) {
+		cout << itr->first
+			<< '\t' << itr->second << endl;
+	}
+	cout << " "<< endl;
 	
 	GameObject* objetoBomberman = nullptr;
 	Tile* tileNuevo = tilesGraph->getTileEn(bombermanPosicionX, bombermanPosicionY);
